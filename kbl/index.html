@@ -12,7 +12,7 @@
 <!-- Main Archive -->
 <div id="mcx">
 <style>
-/* ===== Base — giống Main page ===== */
+/* ===== Base ===== */
 #mcx{container-type:inline-size;width:100%;max-width:1180px;margin:15px auto;background:#11131d;color:#eeeef5;font-family:'Times New Roman',Times,serif;border:1px solid #34364b;border-radius:16px;overflow:hidden;box-sizing:border-box;position:relative;line-height:1.4}
 #mcx *{box-sizing:border-box}
 #mcx a{color:inherit;text-decoration:none}
@@ -49,7 +49,7 @@
 #mcx .mx-me b{display:block;font-size:14px;color:#f0edff}
 #mcx .mx-me small{display:block;font-size:12px;color:#aaa9c1;margin-top:3px}
 
-/* ===== Main + nền sao ===== */
+/* ===== Main ===== */
 #mcx .mx-main{flex:999 1 500px;min-width:0;width:100%;padding:clamp(14px,2.2vw,25px);background:#11131d;background-image:radial-gradient(1px 1px at 8% 12%,#fff 99%,transparent),radial-gradient(1.5px 1.5px at 62% 6%,#bcd6ff 99%,transparent),radial-gradient(1px 1px at 90% 30%,#fff 99%,transparent),radial-gradient(1px 1px at 25% 55%,#fff 99%,transparent),radial-gradient(1.5px 1.5px at 78% 70%,#d9d2ff 99%,transparent),radial-gradient(1px 1px at 40% 92%,#fff 99%,transparent);background-size:260px 220px,340px 280px,300px 240px,360px 300px,320px 260px,280px 230px}
 #mcx .mx-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;font-size:12px;letter-spacing:2px;color:#aaa9c1}
 #mcx .mx-top a:hover{color:#fff}
@@ -78,7 +78,7 @@
 #mcx .dm-collage{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:3px;aspect-ratio:3/2;border-radius:9px;overflow:hidden;border:1px solid #5a5d80;box-shadow:0 18px 40px rgba(0,0,0,.55);background:#1b1d2e}
 #mcx .dm-collage .mx-cover{aspect-ratio:auto;height:100%;border:0;border-radius:0;box-shadow:none}
 #mcx .dm-collage .mx-cover .fb{font-size:0}
-/* Logo MCX330 xoay — giống hero trang chủ */
+/* Logo MCX330 */
 #mcx .dm-spin{position:absolute;z-index:3;right:-34px;bottom:-26px;width:100px;height:100px;border-width:3px;box-shadow:0 0 0 4px rgba(170,168,202,.12),0 10px 26px rgba(0,0,0,.55);font-size:20px;animation:mxspin 18s linear infinite}
 #mcx .dm-htxt{flex:1 1 260px;min-width:0}
 #mcx .dm-kind{display:block;font-size:12px;letter-spacing:3px;color:#aaa9c1;margin-top:14px}
@@ -187,7 +187,7 @@
 #mcx .mx-foot{padding:17px;text-align:center;background:#202337;border-top:1px solid #3b3e56;border-radius:10px;color:#b8b7d0;font-size:14px;line-height:1.8}
 #mcx .mx-foot strong{color:#f0efff}
 
-/* ===== Player bar — giống Main page ===== */
+/* ===== Player bar ===== */
 #mcx .mx-player{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:25px calc(-1 * clamp(14px,2.2vw,25px)) calc(-1 * clamp(14px,2.2vw,25px));padding:14px 20px;background:linear-gradient(100deg,#222638,#34364e,#202337);border-top:1px solid #50516e}
 #mcx .mx-pi{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 190px}
 #mcx .mx-pi .mx-logo{width:45px;height:45px}
@@ -332,13 +332,13 @@ var LOGO='https://miscx330.wordpress.com/wp-content/uploads/2026/08/img_4450.png
 var W='https://miscx330.wordpress.com/';
 var U=W+'wp-content/uploads/';
 
-/* [Tên truyện, link, trạng thái, ảnh bìa, NEW] — giữ đúng thứ tự gốc */
+/* Collections */
 var S=[
 ['Projection',W+'2025/06/02/phan-chieu-lee-eungyu/','Paused',U+'2025/06/projection.jpeg'],
 ['Heated Rivalry',W+'2026/02/26/kdgg-heated-rivalry-rachel-reid/','Reading',U+'2026/02/kdgg-1.png']
 ];
 
-/* Favourite Readings — giữ nguyên thông tin truyện */
+/* Favourite Readings */
 var FEAT=[
 {t:'Projection',k:'K-BL · 01',au:'이은규 (Lee Eungyu)',tags:['Paused'],info:[
 ['Tên gốc','프로젝션 (Projection)'],
@@ -379,10 +379,10 @@ $('dm-pd').textContent=pad(S.length)+' stories · 01 collection';
 $('dm-stats').innerHTML=CATS.map(function(c){return `<button type='button' class='dm-stat' data-f='${c}'><b>${pad(cnt(c))}</b><small>${c.toUpperCase()}</small></button>`}).join('');
 $('dm-side').innerHTML=CATS.map(function(c){return `<a href='#kbl-list' data-f='${c}'><span class='mx-pl-name'><span class='mx-pl-mark' aria-hidden='true'>${ICON[c]}</span><span>${c.toUpperCase()}</span></span><i>${pad(cnt(c))}</i></a>`}).join('');
 
-/* Hero collage — 2 bìa */
+/* Hero collage */
 $('dm-collage').innerHTML=FEAT.slice(0,2).map(function(f){return cover(find(f.t),'')}).join('');
 
-/* Favourite Readings spotlight — chỉ ảnh bìa lớn */
+/* Favourite Readings spotlight */
 var idx=0,timer=null,hover=false,userPaused=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 $('dm-slides').innerHTML=FEAT.map(function(f,i){
 var s=find(f.t);
